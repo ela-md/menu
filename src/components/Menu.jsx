@@ -1,12 +1,21 @@
 
+import { AppContext } from '../context'
+import { useContext } from 'react'
+import MenuItem from './MenuItem'
 
 function Menu () {
 
+    const{menuItems} = useContext(AppContext);
+
     return(
-     <div>
-        <h2>Menu</h2>
+      <div className="section-center">
+       {menuItems.map((menuItem) => {
         
-     </div>
+         return  <MenuItem key={menuItem.id} {...menuItem} />
+        
+       })}
+      </div>
     )
 }
+
 export default Menu
